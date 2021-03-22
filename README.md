@@ -50,6 +50,7 @@ Para probar nuestro paquete, puedes hacer click en el siguiente botón
 
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/optimizacion-2-2021-1-gh-classroom/practica-1-segunda-parte-caroacostatovany/main?urlpath=lab)
 
+La documentación de la herramienta desarrollada la puedes ver [aquí](https://optimizacion-2-2021-1-gh-classroom.github.io/practica-1-segunda-parte-caroacostatovany/). 
 
 ## Referencias
 
