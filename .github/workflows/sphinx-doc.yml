@@ -8,8 +8,9 @@ on:
   push:
     branches:
     - main
+    - sphinx-docs
     paths:
-    - docs/**
+    - src/docs/**
   pull_request:
     branches:
     - main
@@ -32,8 +33,8 @@ jobs:
     # Publish built docs to gh-pages branch.
     # ===============================
       run: |
-        mkdir docs/_build && mkdir docs/_autosummary && mkdir docs/_static && mkdir docs/_templates && chmod gou+wrx -R docs
-        docker run -v $(pwd):/datos --entrypoint /bin/bash --rm caroacostatovany/optimizacion-2-practica-1-parte-2:1.0.0 -c "export PATH=$PATH:/home/miuser/.local/bin/ && cd /datos && pip install . && cd ../docs && make html"
+        mkdir src/docs/_build && mkdir src/docs/_autosummary && mkdir src/docs/_static && mkdir src/docs/_templates && chmod gou+wrx -R src/docs
+        docker run -v $(pwd):/datos --entrypoint /bin/bash --rm caroacostatovany/optimizacion-2-practica-1-parte-2:0.1 -c "export PATH=$PATH:/home/miuser/.local/bin/ && cd /datos && pip install . && cd ../src/docs && make html"
     - name: GitHub Pages action
       uses: peaceiris/actions-gh-pages@v3.7.3
       with:
