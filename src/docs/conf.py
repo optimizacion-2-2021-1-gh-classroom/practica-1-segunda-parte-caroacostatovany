@@ -24,7 +24,6 @@ author = 'cecyar, lecepe00, eduardo-moreno, caroacostatovany'
 # The full version, including alpha/beta/rc tags
 release = '0.1'
 
-
 # -- General configuration ---------------------------------------------------
 
 # Add any Sphinx extension module names here, as strings. They can be
