@@ -5,10 +5,11 @@
 
 | Nombre | User Github | Tarea a realizar |
 |:---:|:---:|:---|
-| Carolina Acosta | caroacostatovany| TBD |
-| Eduardo Moreno | Eduardo-Moreno| TBD |
-| Leonardo Ceja | lecepe00| TBD |
-| Cecilia Avilés | cecyar| TBD |
+| Eduardo Moreno | Eduardo-Moreno| Programación método numérico y pruebas |
+| Cecilia Avilés | cecyar| Programación método numérico y pruebas |
+| Carolina Acosta | caroacostatovany| Github workflows y documentación del paquete |
+| Leonardo Ceja | lecepe00| Imagen de Docker y documentación / **Project Manager** |
+
 
 ## Instrucciones
 
@@ -43,14 +44,6 @@ Viernes 26/mar/2021 11:59pm
 
 * **Para la entrega crear un archivo con nombre:** `reporte_equipo_1_parte_2_practica_1.ipynb`
 * Adjuntar screenshots en un directorio del repo para mostrar el uso de AWS. Debe aparecer en el screenshot nombre, clave única u otra forma de identificar el trabajo.
-
-## Entregables
-
-Para probar nuestro paquete, puedes hacer click en el siguiente botón
-
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/optimizacion-2-2021-1-gh-classroom/practica-1-segunda-parte-caroacostatovany/main?urlpath=lab)
-
-La documentación de la herramienta desarrollada la puedes ver [aquí](https://optimizacion-2-2021-1-gh-classroom.github.io/practica-1-segunda-parte-caroacostatovany/). 
 
 ## Referencias
 
