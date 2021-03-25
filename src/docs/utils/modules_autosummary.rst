@@ -1,7 +1,7 @@
 .. currentmodule:: mex.utils
 
 *******
-Modules
+General Modules
 *******
       
 General functions
