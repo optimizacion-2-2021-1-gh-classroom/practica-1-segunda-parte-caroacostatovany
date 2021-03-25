@@ -24,20 +24,20 @@ def add_cons(table):
         return True
     else:
         return False
-    
-    
+
+
 def constrain(table, eq):
     """
     Add constraints to the problem.
     """
-    
+
     if 'E' in eq:
         if add_cons(table):
             lc = len(table[0, :])
             lr = len(table[:, 0])
             var = lc - lr - 1
             j = 0
-            
+
             while j < lr:
                 row_check = table[j,:]
                 total = 0
