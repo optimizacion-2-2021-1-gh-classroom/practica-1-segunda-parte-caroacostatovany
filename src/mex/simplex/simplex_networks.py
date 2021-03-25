@@ -1,5 +1,6 @@
 import numpy as np
 
+
 def create_matrix(variables, constraints):
     """
     Creates a matrix with enough rows for each constraint plus the objective function
@@ -22,7 +23,7 @@ def pivots_col(matrix):
     excluding the bottom value
     """
     
-    m = min(matrix[:-1,-1])
+    m = min(matrix[:-1, -1])
     if m >= 0:
         return False
     else:
@@ -35,8 +36,8 @@ def pivots_row(matrix):
     excluding the final value
     """
     
-    l = len(matrix[:,0])
-    m = min(matrix[l-1,:-1])
+    l = len(matrix[:, 0])
+    m = min(matrix[l-1, :-1])
     if m >= 0:
         return False
     else:
@@ -48,10 +49,10 @@ def find_negative_col(matrix):
     Finds location of negative values in right column
     """
     
-    l = len(matrix[0,:])
-    m = min(matrix[:-1,l-1])
-    if m<= 0:
-        n = np.where(matrix[:-1,l-1] == m)[0][0]
+    l = len(matrix[0, :])
+    m = min(matrix[:-1, l-1])
+    if m <= 0:
+        n = np.where(matrix[:-1, l-1] == m)[0][0]
     else:
         n = None
     
@@ -66,7 +67,7 @@ def find_negative_row(matrix):
     l = len(matrix[:,0])
     m = min(matrix[l-1,:-1])
     if m <= 0:
-        n = np.where(matrix[l-1,:-1] == m)[0][0]
+        n = np.where(matrix[l-1, :-1] == m)[0][0]
     else:
         n = None
     
@@ -80,10 +81,10 @@ def find_pivot_col(matrix):
     
     total = []
     neg = find_negative_col(matrix)
-    row = matrix[neg,:-1]
+    row = matrix[neg, :-1]
     m = min(row)
     c = np.where(row == m)[0][0]
-    col = matrix[:-1,c]
+    col = matrix[:-1, c]
     for i,j in zip(col, matrix[:-1,-1]):  #i for col with neg, j for right col
         if i != 0 and j/i > 0:
             total.append(j/i)
@@ -102,7 +103,7 @@ def find_pivot_row(matrix):
     if pivots_row(matrix):
         total = []
         neg = find_negative_row(matrix)
-        for i,j in zip(matrix[:-1,neg],matrix[:-1,-1]):
+        for i, j in zip(matrix[:-1, neg], matrix[:-1, -1]):
             if i != 0 and j/i > 0:
                 total.append(j/i)
             else:
@@ -117,20 +118,20 @@ def pivot(row,col,matrix):
     Pivot about a value to remove negative in final column or row
     """
     
-    lr = len(matrix[:,0])
-    lc = len(matrix[0,:])
-    t = np.zeros((lr,lc))
-    pr = matrix[row,:]
-    if matrix[row,col]**2>0:
-        e = 1/matrix[row,col]
+    lr = len(matrix[:, 0])
+    lc = len(matrix[0, :])
+    t = np.zeros((lr, lc))
+    pr = matrix[row, :]
+    if matrix[row, col]**2 > 0:
+        e = 1/matrix[row, col]
         r = pr*e
-        for i in range(len(matrix[:,col])):
-            k = matrix[i,:]
-            c = matrix[i,col]
+        for i in range(len(matrix[:, col])):
+            k = matrix[i, :]
+            c = matrix[i, col]
             if list(k) == list(pr):
                 continue
             else:
-                t[i,:] = list(k-r*c)
+                t[i, :] = list(k-r*c)
         t[row,:] = list(r)
         return t
     else:
