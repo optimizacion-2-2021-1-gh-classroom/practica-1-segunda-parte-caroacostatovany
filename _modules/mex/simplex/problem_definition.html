@@ -61,20 +61,20 @@
         <span class="k">return</span> <span class="kc">True</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="k">return</span> <span class="kc">False</span></div>
-    
-    
+
+
 <div class="viewcode-block" id="constrain"><a class="viewcode-back" href="../../../_autosummary/mex.simplex.problem_definition.constrain.html#mex.simplex.problem_definition.constrain">[docs]</a><span class="k">def</span> <span class="nf">constrain</span><span class="p">(</span><span class="n">table</span><span class="p">,</span> <span class="n">eq</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Add constraints to the problem.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    
+
     <span class="k">if</span> <span class="s1">&#39;E&#39;</span> <span class="ow">in</span> <span class="n">eq</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">add_cons</span><span class="p">(</span><span class="n">table</span><span class="p">):</span>
             <span class="n">lc</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">table</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:])</span>
             <span class="n">lr</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">table</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">])</span>
             <span class="n">var</span> <span class="o">=</span> <span class="n">lc</span> <span class="o">-</span> <span class="n">lr</span> <span class="o">-</span> <span class="mi">1</span>
             <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span>
-            
+
             <span class="k">while</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">lr</span><span class="p">:</span>
                 <span class="n">row_check</span> <span class="o">=</span> <span class="n">table</span><span class="p">[</span><span class="n">j</span><span class="p">,:]</span>
                 <span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
@@ -278,7 +278,7 @@
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2021, cecyar, lecepe00, eduardo-moreno, caroacostatovany.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.5.3.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.4.3.
     </div>
   </body>
 </html>
