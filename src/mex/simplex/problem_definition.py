@@ -1,7 +1,7 @@
 import numpy as np
 
 from src.mex.utils.general import gen_var, convert
-from src.mex.simplex.simplex import next_round_r, loc_piv_r, pivot, next_round, loc_piv, convert_min
+from src.mex.simplex.simplex_networks import next_round_r, loc_piv_r, pivot, next_round, loc_piv, convert_min
 
 
 def add_cons(table):
@@ -35,6 +35,7 @@ def constrain(table, eq):
         lr = len(table[:,0])
         var = lc - lr -1
         j = 0
+        
         while j < lr:
             row_check = table[j,:]
             total = 0
@@ -44,13 +45,17 @@ def constrain(table, eq):
                 row = row_check
                 break
             j +=1
+            
         eq = convert(eq)
         i = 0
+        
         while i<len(eq)-1:
             row[i] = eq[i]
             i +=1
+        
         row[-1] = eq[-1]
         row[var+j] = 1
+        
     else:
         print('Cannot add another constraint.')
         
@@ -94,7 +99,6 @@ def obj(table,eq):
     else:
         print('You must finish adding constraints before the objective function can be added.')
         
-
 
 def maxz(table):
     """
