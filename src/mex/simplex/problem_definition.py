@@ -30,34 +30,65 @@ def constrain(table, eq):
     Add constraints to the problem.
     """
     
-    if add_cons(table):
-        lc = len(table[0,:])
-        lr = len(table[:,0])
-        var = lc - lr -1
-        j = 0
-        
-        while j < lr:
-            row_check = table[j,:]
-            total = 0
-            for i in row_check:
-                total += float(i**2)
-            if total == 0:
-                row = row_check
-                break
-            j +=1
+    if 'E' in eq:
+        if add_cons(table):
+            lc = len(table[0,:])
+            lr = len(table[:,0])
+            var = lc - lr -1
+            j = 0
             
-        eq = convert(eq)
-        i = 0
+            while j < lr:
+                row_check = table[j,:]
+                total = 0
+                for i in row_check:
+                    total += float(i**2)
+                if total == 0:
+                    row = row_check
+                    break
+                j +=1
+                
+            eq = convert(eq)
+            i = 0
+            
+            while i<len(eq)-1:
+                row[i] = eq[i]
+                i +=1
+            
+            row[-1] = eq[-1]
+            #row[var+j] = 1
         
-        while i<len(eq)-1:
-            row[i] = eq[i]
-            i +=1
-        
-        row[-1] = eq[-1]
-        row[var+j] = 1
+        else:
+            print('Cannot add another constraint.')
         
     else:
-        print('Cannot add another constraint.')
+        if add_cons(table):
+            lc = len(table[0,:])
+            lr = len(table[:,0])
+            var = lc - lr -1
+            j = 0
+            
+            while j < lr:
+                row_check = table[j,:]
+                total = 0
+                for i in row_check:
+                    total += float(i**2)
+                if total == 0:
+                    row = row_check
+                    break
+                j +=1
+                
+            eq = convert(eq)
+            i = 0
+            
+            while i<len(eq)-1:
+                row[i] = eq[i]
+                i +=1
+            
+            row[-1] = eq[-1]
+            row[var+j] = 1
+            
+        else:
+            print('Cannot add another constraint.')
         
 
 def add_obj(table):
