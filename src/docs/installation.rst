@@ -28,5 +28,5 @@ or with url:
 
 .. code-block:: bash
 
-    pip install "git+https://https://github.com/optimizacion-2-2021-1-gh-classroom/practica-1-segunda-parte-caroacostatovany.git#egg=mex-solve&subdirectory=src"
+    pip install "git+https://https://github.com/optimizacion-2-2021-1-gh-classroom/practica-1-segunda-parte-caroacostatovany.git#egg=mex&subdirectory=src"
 
