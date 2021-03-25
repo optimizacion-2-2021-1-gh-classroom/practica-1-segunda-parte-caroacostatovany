@@ -29,6 +29,7 @@ def constrain(table, eq):
     """
     Add constraints to the problem.
     """
+    
     if add_cons(table):
         lc = len(table[0,:])
         lr = len(table[:,0])
@@ -58,14 +59,17 @@ def add_obj(table):
     """
     Verify if the objective function can be added.
     """
+    
     lr = len(table[:,0])
     empty = []
+    
     for i in range(lr):
         total = 0
         for j in table[i,:]:
             total += j**2
         if total == 0:
             empty.append(total)
+    
     if len(empty)==1:
         return True
     else:
@@ -76,6 +80,7 @@ def obj(table,eq):
     """
     Add the objective function to the tableau.
     """
+    
     if add_obj(table):
         eq = [float(i) for i in eq.split(',')]
         lr = len(table[:,0])
@@ -88,3 +93,64 @@ def obj(table,eq):
         row[-1] = eq[-1]
     else:
         print('You must finish adding constraints before the objective function can be added.')
+        
+
+
+def maxz(table):
+    """
+    Create maximization function. Determine if 1 extra pivot is required, locate the pivot element, pivot about it and continue the process util all negative elements have been removed from the last column and row.
+    """
+    
+    while next_round_r(table)==True:
+        table = pivot(loc_piv_r(table)[0],loc_piv_r(table)[1],table)
+    while next_round(table)==True:
+        table = pivot(loc_piv(table)[0],loc_piv(table)[1],table)
+    
+    lc = len(table[0,:])
+    lr = len(table[:,0])
+    var = lc - lr -1
+    i = 0
+    val = {}
+    
+    for i in range(var):
+        col = table[:,i]
+        s = sum(col)
+        m = max(col)
+        if float(s) == float(m):
+            loc = np.where(col == m)[0][0]
+            val[gen_var(table)[i]] = table[loc,-1]
+        else:
+            val[gen_var(table)[i]] = 0
+    val['max'] = table[-1,-1]
+    
+    return val
+
+
+def minz(table):
+    """
+    Create minimization function. Determine if 1 extra pivot is required, locate the pivot element, pivot about it and continue the process util all negative elements have been removed from the last column and row.
+    """
+
+    table = convert_min(table)
+    while next_round_r(table)==True:
+        table = pivot(loc_piv_r(table)[0],loc_piv_r(table)[1],table)
+    while next_round(table)==True:
+        table = pivot(loc_piv(table)[0],loc_piv(table)[1],table)
+    
+    lc = len(table[0,:])
+    lr = len(table[:,0])
+    var = lc - lr -1
+    i = 0
+    val = {}
+    
+    for i in range(var):
+        col = table[:,i]
+        s = sum(col)
+        m = max(col)
+        if float(s) == float(m):
+            loc = np.where(col == m)[0][0]
+            val[gen_var(table)[i]] = table[loc,-1]
+        else:
+            val[gen_var(table)[i]] = 0
+            val['min'] = table[-1,-1]*-1
+    return val
