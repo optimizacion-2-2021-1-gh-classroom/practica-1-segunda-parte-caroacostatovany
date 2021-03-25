@@ -8,9 +8,9 @@ on:
   push:
     branches:
     - main
-    - sphinx-docs
     paths:
     - src/docs/**
+    - src/**
   pull_request:
     branches:
     - main
