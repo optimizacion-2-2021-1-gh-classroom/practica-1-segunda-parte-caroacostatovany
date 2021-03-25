@@ -9,17 +9,17 @@ def add_cons(table):
     Check if 1 extra constraints can be added to the matrix, this means that there are at least two rows of all
     0 elements. If this condition is not satisfied, our program will not allow the user to add additional constraints.
     """
-    
+
     lr = len(table[:, 0])
     empty = []
-    
+
     for i in range(lr):
         total = 0
         for j in table[i, :]:
             total += j**2
         if total == 0:
             empty.append(total)
-    
+
     if len(empty) > 1:
         return True
     else:
