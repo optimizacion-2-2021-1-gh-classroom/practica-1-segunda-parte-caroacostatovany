@@ -6,6 +6,8 @@
 Welcome to mex's documentation!
 ===============================
 
+This package will help you to minimize or maximize a problem with simplex method
+
 .. toctree::
    :maxdepth: 1
    :caption: Contents:
