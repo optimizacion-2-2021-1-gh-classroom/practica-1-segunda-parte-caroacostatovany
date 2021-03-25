@@ -1,7 +1,7 @@
 import numpy as np
 
 from src.mex.utils.general import gen_var, convert
-from src.mex.simplex.simplex_networks import next_round_r, loc_piv_r, pivot, next_round, loc_piv, convert_min
+from src.mex.simplex.simplex_networks import *
 
 
 def add_cons(table):
