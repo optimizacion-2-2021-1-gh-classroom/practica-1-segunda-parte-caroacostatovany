@@ -47,5 +47,4 @@ def convert(eq):
         l = eq.index('E')
         del eq[l]
         eq = [float(i) for i in eq]
-        eq2 = -eq
-        return eq,eq2
+        return eq
