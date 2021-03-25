@@ -1,6 +1,6 @@
 import numpy as np
 
-from src.mex.utils.general import *
+from src.mex.utils.general import gen_var, convert
 from src.mex.simplex.simplex_networks import *
 
 
@@ -102,13 +102,14 @@ def obj(table,eq):
 
 def maxz(table):
     """
-    Create maximization function. Determine if 1 extra pivot is required, locate the pivot element, pivot about it and continue the process util all negative elements have been removed from the last column and row.
+    Create maximization function. Determine if 1 extra pivot is required, locate the pivot element, pivot about it and continue the process util all negative elements have
+    been removed from the last column and row.
     """
     
-    while next_round_r(table)==True:
-        table = pivot(loc_piv_r(table)[0],loc_piv_r(table)[1],table)
-    while next_round(table)==True:
-        table = pivot(loc_piv(table)[0],loc_piv(table)[1],table)
+    while pivots_col(table)==True:
+        table = pivot(find_pivot_col(table)[0],find_pivot_col(table)[1],table)
+    while pivots_row(table)==True:
+        table = pivot(find_pivot_row(table)[0],find_pivot_row(table)[1],table)
     
     lc = len(table[0,:])
     lr = len(table[:,0])
@@ -129,17 +130,27 @@ def maxz(table):
     
     return val
 
+def convert_min(table):
+    """
+    If the problem to solve is maximization it is analogue to solve the problem -minimization. So this function multiply by -1 the objective function for maximization problems.
+    """
+    
+    table[-1,:-2] = [-1*i for i in table[-1,:-2]]
+    table[-1,-1] = -1*table[-1,-1]    
+    
+    return table
 
 def minz(table):
     """
-    Create minimization function. Determine if 1 extra pivot is required, locate the pivot element, pivot about it and continue the process util all negative elements have been removed from the last column and row.
+    Create minimization function. Determine if 1 extra pivot is required, locate the pivot element, pivot about it and continue the process util all negative elements have
+    been removed from the last column and row.
     """
 
     table = convert_min(table)
-    while next_round_r(table)==True:
-        table = pivot(loc_piv_r(table)[0],loc_piv_r(table)[1],table)
-    while next_round(table)==True:
-        table = pivot(loc_piv(table)[0],loc_piv(table)[1],table)
+    while pivots_col(table)==True:
+        table = pivot(find_pivot_col(table)[0],find_pivot_col(table)[1],table)
+    while pivots_row(table)==True:
+        table = pivot(find_pivot_row(table)[0],find_pivot_row(table)[1],table)
     
     lc = len(table[0,:])
     lr = len(table[:,0])

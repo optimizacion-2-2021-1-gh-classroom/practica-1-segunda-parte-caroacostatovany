@@ -23,3 +23,29 @@ def gen_var(table):
         v.append('x'+str(i+1))
     
     return v
+
+def convert(eq):
+    """
+    Converts equation into a list containing the coefficients of the equation.
+    """
+    
+    eq = eq.split(',')
+    
+    if 'G' in eq:
+        g = eq.index('G')
+        del eq[g]
+        eq = [float(i)*-1 for i in eq]
+        return eq
+    
+    if 'L' in eq:
+        l = eq.index('L')
+        del eq[l]
+        eq = [float(i) for i in eq]
+        return eq
+    
+    if 'E' in eq:
+        l = eq.index('E')
+        del eq[l]
+        eq = [float(i) for i in eq]
+        eq2 = -eq
+        return eq,eq2
