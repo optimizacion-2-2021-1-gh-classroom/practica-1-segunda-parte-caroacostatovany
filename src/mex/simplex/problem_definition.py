@@ -1,6 +1,6 @@
 import numpy as np
 
-from src.mex.utils.general import gen_var, convert
+from src.mex.utils.general import *
 from src.mex.simplex.simplex_networks import *
 
 
