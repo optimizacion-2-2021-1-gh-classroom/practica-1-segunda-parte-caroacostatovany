@@ -12,6 +12,7 @@ setup(name="mex",
       install_requires = [
                           "numpy",
                           "pandas",
-                          "nose"
+                          "nose",
+                          "sphinx"
                           ],
       )
