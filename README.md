@@ -45,6 +45,12 @@ Viernes 26/mar/2021 11:59pm
 * **Para la entrega crear un archivo con nombre:** `reporte_equipo_1_parte_2_practica_1.ipynb`
 * Adjuntar screenshots en un directorio del repo para mostrar el uso de AWS. Debe aparecer en el screenshot nombre, clave única u otra forma de identificar el trabajo.
 
+## Entregables
+
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/optimizacion-2-2021-1-gh-classroom/practica-1-segunda-parte-caroacostatovany/main?urlpath=lab)
+
+La documentación de la herramienta desarrollada la puedes ver [aquí](https://optimizacion-2-2021-1-gh-classroom.github.io/practica-1-segunda-parte-caroacostatovany/).
+
 ## Referencias
 
 * [build-push-action](https://github.com/docker/build-push-action)
