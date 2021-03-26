@@ -14,7 +14,7 @@ def create_matrix(variables,constraints):
     
     Returns:
     
-        matrix(numpy array): zero matrix.
+        matrix (numpy array): zero matrix.
     """
     
     matrix = np.zeros((constraints + 1, variables + constraints + 2))
@@ -25,7 +25,15 @@ def create_matrix(variables,constraints):
 def pivots_col(matrix):
     """
     Checks to see if pivots are required due to negative values in right column,
-    excluding the bottom value
+    excluding the bottom value.
+    
+    Args:
+    
+        matrix (numpy array): matrix to be reviewed.
+        
+    Returns:
+    
+        Flag (bool): True or False indicating whether a negative element was found.
     """
     
     m = min(matrix[:-1, -1])
@@ -38,7 +46,15 @@ def pivots_col(matrix):
 def pivots_row(matrix):
     """
     Checks to see if pivots are required due to negative values in bottom row, 
-    excluding the final value
+    excluding the final value.
+    
+    Args:
+    
+        matrix (numpy array): matrix to be reviewed.
+        
+    Returns:
+    
+        Flag (bool): True or False indicating whether a negative element was found.
     """
     
     l = len(matrix[:, 0])
@@ -51,7 +67,15 @@ def pivots_row(matrix):
 
 def find_negative_col(matrix):
     """
-    Finds location of negative values in right column
+    Finds location of negative values in right column.
+    
+    Args:
+        
+        matrix (numpy array): matrix to be reviewed.
+        
+    Returns:
+    
+        n (int): index of negative value in right column.
     """
     
     l = len(matrix[0, :])
@@ -66,7 +90,15 @@ def find_negative_col(matrix):
 
 def find_negative_row(matrix):
     """
-    Finds location of negative values in bottom row
+    Finds location of negative values in bottom row.
+    
+    Args:
+        
+        matrix (numpy array): matrix to be reviewed.
+        
+    Returns:
+    
+        n (int): index of negative value in bottom row.
     """
     
     l = len(matrix[:,0])
@@ -81,7 +113,17 @@ def find_negative_row(matrix):
 
 def find_pivot_col(matrix):
     """
-    Finds pivot element corresponding to a negative value in right column
+    Finds pivot element corresponding to a negative value in right column.
+    
+    Args:
+    
+        matrix (numpy array): matrix to be reviewed.
+        
+    Returns:
+        
+        index (int): index of most negative value.
+        
+        c (int): index smallest value on row.
     """
     
     total = []
@@ -102,7 +144,17 @@ def find_pivot_col(matrix):
 
 def find_pivot_row(matrix):
     """
-    Finds pivot element corresponding to a negative value in bottom row
+    Finds pivot element corresponding to a negative value in bottom row.
+    
+    Args:
+        
+        matrix (numpy array): matrix to be reviewed.
+        
+    Returns:
+    
+        index (int): index of most negative value.
+        
+        neg (int): index smallest value.
     """
     
     if pivots_row(matrix):
@@ -120,7 +172,19 @@ def find_pivot_row(matrix):
 
 def pivot(row,col,matrix):
     """
-    Pivot about a value to remove negative in final column or row
+    Pivot about a value to remove negative in final column or row.
+    
+    Args:
+    
+        matrix (numpy array): matrix to be reviewed.
+        
+        row (int): position to pivot.
+        
+        col (int): position to pivot.
+        
+    Returns:
+    
+        t (numpy array): updated matrix.
     """
     
     lr = len(matrix[:, 0])
