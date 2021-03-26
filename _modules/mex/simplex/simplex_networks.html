@@ -51,7 +51,7 @@
 <span class="sd">    </span>
 <span class="sd">    Returns:</span>
 <span class="sd">    </span>
-<span class="sd">        matrix(numpy array): zero matrix.</span>
+<span class="sd">        matrix (numpy array): zero matrix.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     
     <span class="n">matrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">constraints</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">variables</span> <span class="o">+</span> <span class="n">constraints</span> <span class="o">+</span> <span class="mi">2</span><span class="p">))</span>
@@ -62,7 +62,15 @@
 <div class="viewcode-block" id="pivots_col"><a class="viewcode-back" href="../../../_autosummary/mex.simplex.simplex_networks.pivots_col.html#mex.simplex.simplex_networks.pivots_col">[docs]</a><span class="k">def</span> <span class="nf">pivots_col</span><span class="p">(</span><span class="n">matrix</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Checks to see if pivots are required due to negative values in right column,</span>
-<span class="sd">    excluding the bottom value</span>
+<span class="sd">    excluding the bottom value.</span>
+<span class="sd">    </span>
+<span class="sd">    Args:</span>
+<span class="sd">    </span>
+<span class="sd">        matrix (numpy array): matrix to be reviewed.</span>
+<span class="sd">        </span>
+<span class="sd">    Returns:</span>
+<span class="sd">    </span>
+<span class="sd">        Flag (bool): True or False indicating whether a negative element was found.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     
     <span class="n">m</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">matrix</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">])</span>
@@ -75,7 +83,15 @@
 <div class="viewcode-block" id="pivots_row"><a class="viewcode-back" href="../../../_autosummary/mex.simplex.simplex_networks.pivots_row.html#mex.simplex.simplex_networks.pivots_row">[docs]</a><span class="k">def</span> <span class="nf">pivots_row</span><span class="p">(</span><span class="n">matrix</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Checks to see if pivots are required due to negative values in bottom row, </span>
-<span class="sd">    excluding the final value</span>
+<span class="sd">    excluding the final value.</span>
+<span class="sd">    </span>
+<span class="sd">    Args:</span>
+<span class="sd">    </span>
+<span class="sd">        matrix (numpy array): matrix to be reviewed.</span>
+<span class="sd">        </span>
+<span class="sd">    Returns:</span>
+<span class="sd">    </span>
+<span class="sd">        Flag (bool): True or False indicating whether a negative element was found.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     
     <span class="n">l</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">matrix</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">])</span>
@@ -88,7 +104,15 @@
 
 <div class="viewcode-block" id="find_negative_col"><a class="viewcode-back" href="../../../_autosummary/mex.simplex.simplex_networks.find_negative_col.html#mex.simplex.simplex_networks.find_negative_col">[docs]</a><span class="k">def</span> <span class="nf">find_negative_col</span><span class="p">(</span><span class="n">matrix</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Finds location of negative values in right column</span>
+<span class="sd">    Finds location of negative values in right column.</span>
+<span class="sd">    </span>
+<span class="sd">    Args:</span>
+<span class="sd">        </span>
+<span class="sd">        matrix (numpy array): matrix to be reviewed.</span>
+<span class="sd">        </span>
+<span class="sd">    Returns:</span>
+<span class="sd">    </span>
+<span class="sd">        n (int): index of negative value in right column.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     
     <span class="n">l</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">matrix</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:])</span>
@@ -103,7 +127,15 @@
 
 <div class="viewcode-block" id="find_negative_row"><a class="viewcode-back" href="../../../_autosummary/mex.simplex.simplex_networks.find_negative_row.html#mex.simplex.simplex_networks.find_negative_row">[docs]</a><span class="k">def</span> <span class="nf">find_negative_row</span><span class="p">(</span><span class="n">matrix</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Finds location of negative values in bottom row</span>
+<span class="sd">    Finds location of negative values in bottom row.</span>
+<span class="sd">    </span>
+<span class="sd">    Args:</span>
+<span class="sd">        </span>
+<span class="sd">        matrix (numpy array): matrix to be reviewed.</span>
+<span class="sd">        </span>
+<span class="sd">    Returns:</span>
+<span class="sd">    </span>
+<span class="sd">        n (int): index of negative value in bottom row.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     
     <span class="n">l</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">matrix</span><span class="p">[:,</span><span class="mi">0</span><span class="p">])</span>
@@ -118,7 +150,17 @@
 
 <div class="viewcode-block" id="find_pivot_col"><a class="viewcode-back" href="../../../_autosummary/mex.simplex.simplex_networks.find_pivot_col.html#mex.simplex.simplex_networks.find_pivot_col">[docs]</a><span class="k">def</span> <span class="nf">find_pivot_col</span><span class="p">(</span><span class="n">matrix</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Finds pivot element corresponding to a negative value in right column</span>
+<span class="sd">    Finds pivot element corresponding to a negative value in right column.</span>
+<span class="sd">    </span>
+<span class="sd">    Args:</span>
+<span class="sd">    </span>
+<span class="sd">        matrix (numpy array): matrix to be reviewed.</span>
+<span class="sd">        </span>
+<span class="sd">    Returns:</span>
+<span class="sd">        </span>
+<span class="sd">        index (int): index of most negative value.</span>
+<span class="sd">        </span>
+<span class="sd">        c (int): index smallest value on row.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     
     <span class="n">total</span> <span class="o">=</span> <span class="p">[]</span>
@@ -139,7 +181,17 @@
 
 <div class="viewcode-block" id="find_pivot_row"><a class="viewcode-back" href="../../../_autosummary/mex.simplex.simplex_networks.find_pivot_row.html#mex.simplex.simplex_networks.find_pivot_row">[docs]</a><span class="k">def</span> <span class="nf">find_pivot_row</span><span class="p">(</span><span class="n">matrix</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Finds pivot element corresponding to a negative value in bottom row</span>
+<span class="sd">    Finds pivot element corresponding to a negative value in bottom row.</span>
+<span class="sd">    </span>
+<span class="sd">    Args:</span>
+<span class="sd">        </span>
+<span class="sd">        matrix (numpy array): matrix to be reviewed.</span>
+<span class="sd">        </span>
+<span class="sd">    Returns:</span>
+<span class="sd">    </span>
+<span class="sd">        index (int): index of most negative value.</span>
+<span class="sd">        </span>
+<span class="sd">        neg (int): index smallest value.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     
     <span class="k">if</span> <span class="n">pivots_row</span><span class="p">(</span><span class="n">matrix</span><span class="p">):</span>
@@ -157,7 +209,19 @@
 
 <div class="viewcode-block" id="pivot"><a class="viewcode-back" href="../../../_autosummary/mex.simplex.simplex_networks.pivot.html#mex.simplex.simplex_networks.pivot">[docs]</a><span class="k">def</span> <span class="nf">pivot</span><span class="p">(</span><span class="n">row</span><span class="p">,</span><span class="n">col</span><span class="p">,</span><span class="n">matrix</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Pivot about a value to remove negative in final column or row</span>
+<span class="sd">    Pivot about a value to remove negative in final column or row.</span>
+<span class="sd">    </span>
+<span class="sd">    Args:</span>
+<span class="sd">    </span>
+<span class="sd">        matrix (numpy array): matrix to be reviewed.</span>
+<span class="sd">        </span>
+<span class="sd">        row (int): position to pivot.</span>
+<span class="sd">        </span>
+<span class="sd">        col (int): position to pivot.</span>
+<span class="sd">        </span>
+<span class="sd">    Returns:</span>
+<span class="sd">    </span>
+<span class="sd">        t (numpy array): updated matrix.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     
     <span class="n">lr</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">matrix</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">])</span>
