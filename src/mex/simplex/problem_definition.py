@@ -1,7 +1,7 @@
 import numpy as np
 
-from src.mex.utils.general import gen_var, convert
-from src.mex.simplex.simplex_networks import pivots_col, pivots_row, find_pivot_col, find_pivot_row, pivot
+from mex.utils.general import gen_var, convert
+from mex.simplex.simplex_networks import pivots_col, pivots_row, find_pivot_col, find_pivot_row, pivot
 
 
 def add_cons(table):
