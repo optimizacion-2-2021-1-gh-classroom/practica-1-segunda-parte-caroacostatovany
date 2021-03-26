@@ -46,9 +46,20 @@
 <h1>mex.simplex.problem_definition.convert_min<a class="headerlink" href="#mex-simplex-problem-definition-convert-min" title="Permalink to this headline">¶</a></h1>
 <dl class="py function">
 <dt id="mex.simplex.problem_definition.convert_min">
-<code class="sig-prename descclassname">mex.simplex.problem_definition.</code><code class="sig-name descname">convert_min</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">table</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mex/simplex/problem_definition.html#convert_min"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mex.simplex.problem_definition.convert_min" title="Permalink to this definition">¶</a></dt>
-<dd><p>If the problem to solve is maximization it is analogue to solve the problem -minimization.
-So this function multiply by -1 the objective function for maximization problems.</p>
+<code class="sig-prename descclassname">mex.simplex.problem_definition.</code><code class="sig-name descname">convert_min</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">matrix</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mex/simplex/problem_definition.html#convert_min"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mex.simplex.problem_definition.convert_min" title="Permalink to this definition">¶</a></dt>
+<dd><p>If the problem to be solved is maximization it is analogue to solve the problem -minimization.
+So this function multiplies by -1 the objective function for maximization problems.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>matrix</strong> (<em>numpy array</em>) – matrix to be updated.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>matrix multiplied by -1.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>matrix (numpy array)</p>
+</dd>
+</dl>
 </dd></dl>
 
 </div>

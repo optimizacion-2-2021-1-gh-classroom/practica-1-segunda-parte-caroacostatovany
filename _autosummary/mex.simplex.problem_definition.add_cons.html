@@ -46,9 +46,20 @@
 <h1>mex.simplex.problem_definition.add_cons<a class="headerlink" href="#mex-simplex-problem-definition-add-cons" title="Permalink to this headline">¶</a></h1>
 <dl class="py function">
 <dt id="mex.simplex.problem_definition.add_cons">
-<code class="sig-prename descclassname">mex.simplex.problem_definition.</code><code class="sig-name descname">add_cons</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">table</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mex/simplex/problem_definition.html#add_cons"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mex.simplex.problem_definition.add_cons" title="Permalink to this definition">¶</a></dt>
-<dd><p>Check if 1 extra constraints can be added to the matrix, this means that there are at least two rows of all
+<code class="sig-prename descclassname">mex.simplex.problem_definition.</code><code class="sig-name descname">add_cons</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">matrix</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mex/simplex/problem_definition.html#add_cons"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mex.simplex.problem_definition.add_cons" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks if 1 extra constraint can be added to the matrix, this means that there are at least two rows of all
 0 elements. If this condition is not satisfied, our program will not allow the user to add additional constraints.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>matrix</strong> (<em>numpy array</em>) – matrix to be reviewed.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>True or False indicating whether 1+ constraints can be added.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Flag (bool)</p>
+</dd>
+</dl>
 </dd></dl>
 
 </div>
