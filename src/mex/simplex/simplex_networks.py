@@ -1,15 +1,20 @@
 import numpy as np
 
 
-def create_matrix(variables, constraints):
+def create_matrix(variables,constraints):
     """
     Creates a matrix with enough rows for each constraint plus the objective function
     and enough columns for all the variables.
+    
     Args:
-        - variables (int): number of variables
-        - constraints (int): number of constraints
+    
+        variables (int): number of variables.
+        
+        constraints (int): number of constraints.
+    
     Returns:
-        - matrix (numpy array)
+    
+        matrix(numpy array): zero matrix.
     """
     
     matrix = np.zeros((constraints + 1, variables + constraints + 2))
