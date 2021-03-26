@@ -6,7 +6,7 @@
 Welcome to mex's documentation!
 ===============================
 
-Hello world!
+Hello world!!
 
 This package will help you to minimize or maximize a problem with simplex method
 
