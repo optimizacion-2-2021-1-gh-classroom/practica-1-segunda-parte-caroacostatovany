@@ -38,15 +38,20 @@
 <span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
 
-<div class="viewcode-block" id="create_matrix"><a class="viewcode-back" href="../../../_autosummary/mex.simplex.simplex_networks.create_matrix.html#mex.simplex.simplex_networks.create_matrix">[docs]</a><span class="k">def</span> <span class="nf">create_matrix</span><span class="p">(</span><span class="n">variables</span><span class="p">,</span> <span class="n">constraints</span><span class="p">):</span>
+<div class="viewcode-block" id="create_matrix"><a class="viewcode-back" href="../../../_autosummary/mex.simplex.simplex_networks.create_matrix.html#mex.simplex.simplex_networks.create_matrix">[docs]</a><span class="k">def</span> <span class="nf">create_matrix</span><span class="p">(</span><span class="n">variables</span><span class="p">,</span><span class="n">constraints</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Creates a matrix with enough rows for each constraint plus the objective function</span>
 <span class="sd">    and enough columns for all the variables.</span>
+<span class="sd">    </span>
 <span class="sd">    Args:</span>
-<span class="sd">        - variables (int): number of variables</span>
-<span class="sd">        - constraints (int): number of constraints</span>
+<span class="sd">    </span>
+<span class="sd">        variables (int): number of variables.</span>
+<span class="sd">        </span>
+<span class="sd">        constraints (int): number of constraints.</span>
+<span class="sd">    </span>
 <span class="sd">    Returns:</span>
-<span class="sd">        - matrix (numpy array)</span>
+<span class="sd">    </span>
+<span class="sd">        matrix(numpy array): zero matrix.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     
     <span class="n">matrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">constraints</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">variables</span> <span class="o">+</span> <span class="n">constraints</span> <span class="o">+</span> <span class="mi">2</span><span class="p">))</span>
