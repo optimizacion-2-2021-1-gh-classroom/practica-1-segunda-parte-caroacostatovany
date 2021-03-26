@@ -4,18 +4,26 @@ from mex.utils.general import gen_var, convert
 from mex.simplex.simplex_networks import pivots_col, pivots_row, find_pivot_col, find_pivot_row, pivot
 
 
-def add_cons(table):
+def add_cons(matrix):
     """
-    Check if 1 extra constraints can be added to the matrix, this means that there are at least two rows of all
+    Checks if 1 extra constraint can be added to the matrix, this means that there are at least two rows of all
     0 elements. If this condition is not satisfied, our program will not allow the user to add additional constraints.
+    
+    Args:
+    
+        matrix (numpy array): matrix to be reviewed.
+    
+    Returns:
+    
+        Flag (bool): True or False indicating whether 1+ constraints can be added.
     """
 
-    lr = len(table[:, 0])
+    lr = len(matrix[:, 0])
     empty = []
 
     for i in range(lr):
         total = 0
-        for j in table[i, :]:
+        for j in matrix[i, :]:
             total += j**2
         if total == 0:
             empty.append(total)
@@ -26,20 +34,31 @@ def add_cons(table):
         return False
 
 
-def constrain(table, eq):
+def constrain(matrix, eq):
     """
-    Add constraints to the problem.
+    Adds constraints to the problem.
+    
+    Args:
+    
+        matrix (numpy array): matrix defined with :mod:`create_matrix`.
+        
+        eq (numpy array): coefficients of constraints expressions. Use **L** for *less than*, **G** for *greater than*, **E** for *equal to*.
+    
+    >>> problem_matrix = create_matrix(2,3)   # 2 variables and 3 constraints
+    >>> constrain(problem_matrix,'1,L,4')     # x_1 <= 4
+    >>> constrain(problem_matrix,'0,2,L,12')  # 2x_2 <= 12
+    >>> constrain(problem_matrix,'3,2,G,18')  # 3x_1 + 2x_2 >= 18
     """
 
     if 'E' in eq:
-        if add_cons(table):
-            lc = len(table[0, :])
-            lr = len(table[:, 0])
+        if add_cons(matrix):
+            lc = len(matrix[0, :])
+            lr = len(matrix[:, 0])
             var = lc - lr - 1
             j = 0
 
             while j < lr:
-                row_check = table[j,:]
+                row_check = matrix[j,:]
                 total = 0
                 for i in row_check:
                     total += float(i**2)
@@ -62,14 +81,14 @@ def constrain(table, eq):
             print('Cannot add another constraint.')
         
     else:
-        if add_cons(table):
-            lc = len(table[0, :])
-            lr = len(table[:, 0])
+        if add_cons(matrix):
+            lc = len(matrix[0, :])
+            lr = len(matrix[:, 0])
             var = lc - lr -1
             j = 0
             
             while j < lr:
-                row_check = table[j, :]
+                row_check = matrix[j, :]
                 total = 0
                 for i in row_check:
                     total += float(i**2)
@@ -92,17 +111,25 @@ def constrain(table, eq):
             print('Cannot add another constraint.')
         
 
-def add_obj(table):
+def add_obj(matrix):
     """
-    Verify if the objective function can be added.
+    Verifies if the objective function can be added.
+    
+    Args:
+    
+        matrix (numpy array): matrix to be reviewed.
+    
+    Returns:
+    
+        Flag (bool): True or False indicating whether objective function can be added.
     """
     
-    lr = len(table[:,0])
+    lr = len(matrix[:,0])
     empty = []
     
     for i in range(lr):
         total = 0
-        for j in table[i, :]:
+        for j in matrix[i, :]:
             total += j**2
         if total == 0:
             empty.append(total)
@@ -113,15 +140,30 @@ def add_obj(table):
         return False
 
 
-def obj(table,eq):
+def obj(matrix,eq):
     """
-    Add the objective function to the tableau.
+    Adds the objective function to the problem matrix.
+    
+    .. note::
+        Objective function must be added **after** constraints have been input.
+    
+    Args:
+    
+        matrix (numpy array): matrix defined with :mod:`create_matrix`.
+        
+        eq (numpy array): coefficients of objective function.
+    
+    >>> problem_matrix = create_matrix(2,3)   # 2 variables and 3 constraints
+    >>> constrain(problem_matrix,'1,L,4')     # x_1 <= 4
+    >>> constrain(problem_matrix,'0,2,L,12')  # 2x_2 <= 12
+    >>> constrain(problem_matrix,'4,2,G,18')  # 4x_1 + 2x_2 >= 18
+    >>> obj(problem_matrix,'3,5,0')           # 3x_1 + 5x_2
     """
     
-    if add_obj(table):
+    if add_obj(matrix):
         eq = [float(i) for i in eq.split(',')]
-        lr = len(table[:,0])
-        row = table[lr-1,:]
+        lr = len(matrix[:,0])
+        row = matrix[lr-1,:]
         i = 0
         while i<len(eq)-1:
             row[i] = eq[i]*-1
@@ -132,77 +174,118 @@ def obj(table,eq):
         print('You must finish adding constraints before the objective function can be added.')
         
 
-def maxz(table):
+def maxz(matrix):
     """
-    Create maximization function. Determine if 1 extra pivot is required, locate the pivot element,
-    pivot about it and continue the process util all negative elements have
-    been removed from the last column and row.
+    Creates maximization function. Determines if 1 extra pivot is required, locates the pivot element,
+    pivots about it and continues the process until all negative elements have been removed from
+    the last column and row.
+    
+    Args:
+    
+        matrix (numpy array): problem matrix with constraints and objective function added.
+    
+    Returns:
+    
+        (dict) A dictionary with Max and variables.
+        
+    >>> problem_matrix = create_matrix(2,3)   # 2 variables and 3 constraints
+    >>> constrain(problem_matrix,'1,L,4')     # x_1 <= 4
+    >>> constrain(problem_matrix,'0,2,L,12')  # 2x_2 <= 12
+    >>> constrain(problem_matrix,'4,2,G,18')  # 4x_1 + 2x_2 >= 18
+    >>> obj(problem_matrix,'3,5,0')           # 3x_1 + 5x_2
+    >>> maxz(problem_matrix)
+    {'x1': 4.0, 'x2': 6.0, 'max': 42.0}
     """
     
-    while pivots_col(table):
-        table = pivot(find_pivot_col(table)[0], find_pivot_col(table)[1], table)
-    while pivots_row(table):
-        table = pivot(find_pivot_row(table)[0], find_pivot_row(table)[1], table)
+    while pivots_col(matrix):
+        matrix = pivot(find_pivot_col(matrix)[0], find_pivot_col(matrix)[1], matrix)
+    while pivots_row(matrix):
+        matrix = pivot(find_pivot_row(matrix)[0], find_pivot_row(matrix)[1], matrix)
     
-    lc = len(table[0, :])
-    lr = len(table[:, 0])
+    lc = len(matrix[0, :])
+    lr = len(matrix[:, 0])
     var = lc - lr - 1
     i = 0
     val = {}
     
     for i in range(var):
-        col = table[:, i]
+        col = matrix[:, i]
         s = sum(col)
         m = max(col)
         if float(s) == float(m):
             loc = np.where(col == m)[0][0]
-            val[gen_var(table)[i]] = table[loc, -1]
+            val[gen_var(matrix)[i]] = matrix[loc, -1]
         else:
-            val[gen_var(table)[i]] = 0
-    val['max'] = table[-1, -1]
+            val[gen_var(matrix)[i]] = 0
+    val['max'] = matrix[-1, -1]
     
     return val
 
 
-def convert_min(table):
+def convert_min(matrix):
     """
-    If the problem to solve is maximization it is analogue to solve the problem -minimization.
-    So this function multiply by -1 the objective function for maximization problems.
+    If the problem to be solved is maximization it is analogue to solve the problem -minimization.
+    So this function multiplies by -1 the objective function for maximization problems.
+    
+    Args:
+    
+        matrix (numpy array): matrix to be updated.
+    
+    Returns:
+    
+        matrix (numpy array): matrix multiplied by -1.
     """
     
-    table[-1, :-2] = [-1*i for i in table[-1, :-2]]
-    table[-1, -1] = -1*table[-1, -1]
+    matrix[-1, :-2] = [-1*i for i in matrix[-1, :-2]]
+    matrix[-1, -1] = -1*matrix[-1, -1]
     
-    return table
+    return matrix
 
 
-def minz(table):
+def minz(matrix):
     """
-    Create minimization function. Determine if 1 extra pivot is required, locate the pivot element,
-    pivot about it and continue the process util all negative elements have
-    been removed from the last column and row.
-    """
-
-    table = convert_min(table)
-    while pivots_col(table):
-        table = pivot(find_pivot_col(table)[0], find_pivot_col(table)[1], table)
-    while pivots_row(table):
-        table = pivot(find_pivot_row(table)[0], find_pivot_row(table)[1], table)
+    Creates minimization function. Determines if 1 extra pivot is required, locates the pivot element,
+    pivots about it and continues the process until all negative elements have been removed from 
+    the last column and row.
     
-    lc = len(table[0, :])
-    lr = len(table[:, 0])
+    Args:
+    
+        matrix (numpy array): problem matrix with constraints and objective function added.
+    
+    Returns:
+    
+        (dict) A dictionary with Min and variables.
+        
+    >>> problem_matrix = create_matrix(2,4)   # 2 variables and 4 constraints
+    >>> constrain(problem_matrix,'1,1,L,6')   # x_1 + x_2 <= 6
+    >>> constrain(problem_matrix,'-1,2,L,8')  # -x_1 + 2x_2 <= 8
+    >>> constrain(problem_matrix,'1,G,0')     # x_1 >= 0
+    >>> constrain(problem_matrix,'0,1,G,0')   # x_2 >= 0
+    >>> obj(problem_matrix,'-1,-3,0')         # -x_1 - 3x_2
+    >>> minz(problem_matrix)
+    {'x1': 1.3333333333333333, 'x2': 4.666666666666667}
+    """
+
+    matrix = convert_min(matrix)
+    while pivots_col(matrix):
+        matrix = pivot(find_pivot_col(matrix)[0], find_pivot_col(matrix)[1], matrix)
+    while pivots_row(matrix):
+        matrix = pivot(find_pivot_row(matrix)[0], find_pivot_row(matrix)[1], matrix)
+    
+    lc = len(matrix[0, :])
+    lr = len(matrix[:, 0])
     var = lc - lr - 1
     i = 0
     val = {}
     
     for i in range(var):
-        col = table[:, i]
+        col = matrix[:, i]
         s = sum(col)
         m = max(col)
         if float(s) == float(m):
             loc = np.where(col == m)[0][0]
-            val[gen_var(table)[i]] = table[loc, -1]
+            val[gen_var(matrix)[i]] = tabmatrixle[loc, -1]
         else:
-            val[gen_var(table)[i]] = 0
-            val['min'] = table[-1, -1]*-1
+            val[gen_var(matrix)[i]] = 0
+            val['min'] = matrix[-1, -1]*-1
     return val
