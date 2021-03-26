@@ -1,1 +1,0 @@
-Apartado de notebooks para una mayor comprehensión del paquete.
