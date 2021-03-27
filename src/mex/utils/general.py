@@ -1,28 +1,44 @@
-def convert_min(table):
+def convert_min(matrix):
     """
-    If the problem to solve is maximization it is analogue to solve the problem -minimization.
-    So this function multiply by -1 the objective function for maximization problems.
+    This function multiplies by -1 the objective function for maximization problems. This is because
+    if the problem to be solved is maximization then it is analogue to solve the problem -minimization.
+    
+    Args:
+    
+        matrix (numpy array): matrix to be updated.
+    
+    Returns:
+    
+        matrix (numpy array): matrix multiplied by -1.
     """
     
-    table[-1, :-2] = [-1*i for i in table[-1, :-2]]
-    table[-1, -1] = -1*table[-1, -1]
+    matrix[-1, :-2] = [-1*i for i in matrix[-1, :-2]]
+    matrix[-1, -1] = -1*matrix[-1, -1]
     
     return table
 
 
-def gen_var(table):
+def gen_var(matrix):
     """
     Generates the required number of variables. They are defined by the problem.
+    
+    Args:
+    
+        matrix (numpy array): matrix to be updated.
+    
+    Returns:
+    
+        v (list): list with problem variables.
     """
     
-    lc = len(table[0, :])
-    lr = len(table[:, 0])
+    lc = len(matrix[0, :])
+    lr = len(matrix[:, 0])
     
     var = lc - lr -1
     v = []
     
     for i in range(var):
-        v.append('x'+str(i+1))
+        v.append('x' + str(i+1))
     
     return v
 
@@ -30,6 +46,14 @@ def gen_var(table):
 def convert(eq):
     """
     Converts equation into a list containing the coefficients of the equation.
+    
+    Args:
+    
+        eq (string): equation defined with :func:`constrain`.
+    
+    Returns:
+    
+        eq (list): list with equation coefficients.
     """
     
     eq = eq.split(',')
