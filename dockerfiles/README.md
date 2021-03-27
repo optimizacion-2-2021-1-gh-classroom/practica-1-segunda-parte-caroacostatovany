@@ -1,17 +1,20 @@
 Instructions to build docker image. Set:
 
+
+
 ```
 JUPYTERLAB_VERSION=2.1.4
 REPO_URL=caroacostatovany/optimizacion-2-practica-1-parte-2
-DIR=/home/<user>/<midir>/
-BUILD_DIR=$DIR/2.1.4/
+DIR=/home/<user>/<midir>
+BUILD_DIR=${DIR}dockerfiles/pkg/
 CONTAINER_NAME=optimizacion-2-practica-1-parte-2
 ```
+*<midir> should be an empty directory
 
 Clone:
 
 ```
-git clone --single-branch -b jupyterlab_prope_r_kernel_tidyverse https://github.com/palmoreck/dockerfiles-for-binder.git $DIR
+git clone --single-branch -b main https://github.com/optimizacion-2-2021-1-gh-classroom/practica-1-segunda-parte-caroacostatovany.git $DIR
 ```
 
 Build:
