@@ -4,8 +4,8 @@ from scipy.optimize import linprog
 
 #import os
 #os.chdir("..")
-from ..mex.simplex.simplex_networks import *
-from ..mex.simplex.problem_definition import *
+from mex.simplex.simplex_networks import *
+from mex.simplex.problem_definition import *
 
 def test_min_problem():
     """
