@@ -1,5 +1,8 @@
 import numpy as np
 
+import os
+os.chdir("..")
+
 from src.mex.utils.general import gen_var, convert
 from src.mex.simplex.simplex_networks import pivots_col, pivots_row, find_pivot_col, find_pivot_row, pivot
 
@@ -42,7 +45,7 @@ def constrain(matrix, eq):
     
         matrix (numpy array): matrix defined with :mod:`create_matrix`.
         
-        eq (numpy array): coefficients of constraints expressions. Use **L** for *less than*, **G** for *greater than*, **E** for *equal to*.
+        eq (string): coefficients of constraints expressions. Use **L** for *less than*, **G** for *greater than*, **E** for *equal to*.
     
     >>> problem_matrix = create_matrix(2,3)   # 2 variables and 3 constraints
     >>> constrain(problem_matrix,'1,L,4')     # x_1 <= 4
@@ -151,7 +154,7 @@ def obj(matrix,eq):
     
         matrix (numpy array): matrix defined with :mod:`create_matrix`.
         
-        eq (numpy array): coefficients of objective function.
+        eq (string): coefficients of objective function.
     
     >>> problem_matrix = create_matrix(2,3)   # 2 variables and 3 constraints
     >>> constrain(problem_matrix,'1,L,4')     # x_1 <= 4
@@ -186,7 +189,7 @@ def maxz(matrix):
     
     Returns:
     
-        (dict) A dictionary with Max and variables.
+        *(dict)* A dictionary with Max and variables.
         
     >>> problem_matrix = create_matrix(2,3)   # 2 variables and 3 constraints
     >>> constrain(problem_matrix,'1,L,4')     # x_1 <= 4
@@ -224,8 +227,8 @@ def maxz(matrix):
 
 def convert_min(matrix):
     """
-    If the problem to be solved is maximization it is analogue to solve the problem -minimization.
-    So this function multiplies by -1 the objective function for maximization problems.
+    This function multiplies by -1 the objective function for maximization problems. This is because
+    if the problem to be solved is maximization then it is analogue to solve the problem -minimization.
     
     Args:
     
