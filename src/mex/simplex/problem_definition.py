@@ -1,10 +1,13 @@
 import numpy as np
 
-import os, sys
-sys.path.insert(0, os.path.abspath(".."))
+#import os, sys
+#sys.path.insert(0, os.path.abspath(".."))
 
-from mex.utils.general import gen_var, convert
-from mex.simplex.simplex_networks import pivots_col, pivots_row, find_pivot_col, find_pivot_row, pivot
+import os
+os.chdir("..")
+
+from mex.utils.general import *
+from mex.simplex.simplex_networks import *
 
 
 def add_cons(matrix):
@@ -225,26 +228,6 @@ def maxz(matrix):
     return val
 
 
-def convert_min(matrix):
-    """
-    This function multiplies by -1 the objective function for maximization problems. This is because
-    if the problem to be solved is maximization then it is analogue to solve the problem -minimization.
-    
-    Args:
-    
-        matrix (numpy array): matrix to be updated.
-    
-    Returns:
-    
-        matrix (numpy array): matrix multiplied by -1.
-    """
-    
-    matrix[-1, :-2] = [-1*i for i in matrix[-1, :-2]]
-    matrix[-1, -1] = -1*matrix[-1, -1]
-    
-    return matrix
-
-
 def minz(matrix):
     """
     Creates minimization function. Determines if 1 extra pivot is required, locates the pivot element,
@@ -290,5 +273,6 @@ def minz(matrix):
             val[gen_var(matrix)[i]] = matrix[loc, -1]
         else:
             val[gen_var(matrix)[i]] = 0
-            val['min'] = matrix[-1, -1]*-1
+    val['min'] = matrix[-1, -1]*-1
+    
     return val
