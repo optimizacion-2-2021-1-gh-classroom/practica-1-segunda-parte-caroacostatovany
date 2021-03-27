@@ -2,8 +2,8 @@ import numpy as np
 from pytest import approx
 from scipy.optimize import linprog
 
-import os
-os.chdir("..")
+#import os
+#os.chdir("..")
 from src.mex.simplex.simplex_networks import *
 from src.mex.simplex.problem_definition import *
 
