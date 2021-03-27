@@ -1,10 +1,10 @@
 import numpy as np
 
-import os
-os.chdir("..")
+import os, sys
+sys.path.insert(0, os.path.abspath(".."))
 
-from src.mex.utils.general import gen_var, convert
-from src.mex.simplex.simplex_networks import pivots_col, pivots_row, find_pivot_col, find_pivot_row, pivot
+from mex.utils.general import gen_var, convert
+from mex.simplex.simplex_networks import pivots_col, pivots_row, find_pivot_col, find_pivot_row, pivot
 
 
 def add_cons(matrix):
