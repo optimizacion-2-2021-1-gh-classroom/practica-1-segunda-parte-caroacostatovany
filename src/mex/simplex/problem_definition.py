@@ -1,7 +1,7 @@
 import numpy as np
 
-from mex.utils.general import gen_var, convert
-from mex.simplex.simplex_networks import pivots_col, pivots_row, find_pivot_col, find_pivot_row, pivot
+from src.mex.utils.general import gen_var, convert
+from src.mex.simplex.simplex_networks import pivots_col, pivots_row, find_pivot_col, find_pivot_row, pivot
 
 
 def add_cons(matrix):
@@ -284,7 +284,7 @@ def minz(matrix):
         m = max(col)
         if float(s) == float(m):
             loc = np.where(col == m)[0][0]
-            val[gen_var(matrix)[i]] = tabmatrixle[loc, -1]
+            val[gen_var(matrix)[i]] = matrix[loc, -1]
         else:
             val[gen_var(matrix)[i]] = 0
             val['min'] = matrix[-1, -1]*-1
