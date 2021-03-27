@@ -15,7 +15,7 @@ def convert_min(matrix):
     matrix[-1, :-2] = [-1*i for i in matrix[-1, :-2]]
     matrix[-1, -1] = -1*matrix[-1, -1]
     
-    return table
+    return matrix
 
 
 def gen_var(matrix):
