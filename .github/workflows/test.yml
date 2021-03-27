@@ -35,5 +35,5 @@ jobs:
         run: pip install scipy
 
       # Runs a single command using the runners shell
-      - name: Run src/tests/test.py
-        run: pytest src/tests/test.py
+      - name: Run test
+        run: cd src && pip install --editable . && pytest tests/test.py
