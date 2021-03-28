@@ -4,8 +4,9 @@ from scipy.optimize import linprog
 
 #import os
 #os.chdir("..")
-from mex.simplex.simplex_networks import *
-from mex.simplex.problem_definition import *
+from mex.simplex.simplex_networks import create_matrix
+from mex.simplex.problem_definition import constrain, obj, minz, maxz
+
 
 def test_min_problem():
     """
@@ -63,7 +64,6 @@ def test_max_problem():
     
     assert max_approx == approx(max_obj)
     assert coeff_obj == approx(coeff_approx)
-    
 
     
 def test_net_problem():

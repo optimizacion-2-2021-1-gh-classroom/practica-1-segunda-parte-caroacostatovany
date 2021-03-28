@@ -2,7 +2,7 @@ import numpy as np
 import logging
 
 
-def create_matrix(variables,constraints):
+def create_matrix(variables, constraints):
     """
     Creates a matrix with enough rows for each constraint plus the objective function
     and enough columns for all the variables.
