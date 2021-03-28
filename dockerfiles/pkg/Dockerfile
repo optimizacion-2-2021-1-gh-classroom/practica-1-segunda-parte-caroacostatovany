@@ -17,8 +17,8 @@ RUN echo 'miuser:qwerty' | chpasswd
 RUN pip3 install jupyter jupyterlab==$JUPYTERLAB_VERSION --upgrade
 
 
-RUN apt-get update \        
-     apt-get install -y git
+RUN apt-get update 
+RUN apt-get install -y git
      
 RUN mkdir /home/datos \      
            cd /home/datos \        
