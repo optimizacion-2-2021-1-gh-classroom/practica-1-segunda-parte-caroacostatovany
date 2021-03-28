@@ -10,54 +10,33 @@
 | Carolina Acosta | caroacostatovany| Github workflows y documentación del paquete |
 | Leonardo Ceja | lecepe00| Imagen de Docker y documentación / **Project Manager** |
 
+![](https://github.com/optimizacion-2-2021-1-gh-classroom/practica-1-segunda-parte-caroacostatovany/blob/main/images/mex_simplex_logo.png)
+## Aplicando el método simplex
 
-## Instrucciones
+- En esta práctica se desarrolló un paquete de Python para resolver problemas de optimización por medio del método Simplex. 
 
-Implementar un método numérico que resuelva problemas de optimización convexa de pequeña escala. 
+- Para probar nuestro paquete puedes hacer uso del siguiente botón de binder: [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/optimizacion-2-2021-1-gh-classroom/practica-1-segunda-parte-caroacostatovany/main?urlpath=lab). Puedes probar el Jupyter notebook [Pruebas_Resultados.ipynb](https://github.com/optimizacion-2-2021-1-gh-classroom/practica-1-segunda-parte-caroacostatovany/tree/main/notebooks), que se encuentra en el directorio `/notebooks`.
 
-Se entrega:
-* Implementación del método numérico elegido en un lenguaje de su elección.
+- La documentación de nuestro paquete se desarrolló con [Sphinx](https://www.sphinx-doc.org/en/master/), la puedes encontrar [aquí](https://optimizacion-2-2021-1-gh-classroom.github.io/practica-1-segunda-parte-caroacostatovany/).
 
-* El método numérico debe poder usarse a través de un paquete del lenguaje que ustedes elijan (hay que crear un paquete que tenga su método numérico). Por ejemplo si es de *Python* entonces: `pip install <pkg>` y luego `import <pkg>`.
+- Para el desarrollo del proyecto se levantó una instancia de AWS donde se cargó una imagen de Docker que contiene JupyterLab. La evidencia del uso de la misma se encuentra en el directorio [AWS_screenshots](https://github.com/optimizacion-2-2021-1-gh-classroom/practica-1-segunda-parte-caroacostatovany/tree/main/AWS_screenshots).
 
-* Crear documentación del paquete con [sphinx](https://www.sphinx-doc.org/en/master/). Ver [cookiecutter-pypackage](https://github.com/audreyfeldroy/cookiecutter-pypackage) para un ejemplo de lo que un paquete de software debería tener y [example-python-package-and-sphinx-doc](https://github.com/palmoreck/example-python-package-and-sphinx-doc) de instrucciones y archivos que pueden usar de apoyo. Si conocen otra herramienta para documentación pueden usarla. Algunos ejemplos de documentación de *Python, R, Julia* que pueden crearse con `sphinx` son: [rasterio](https://rasterio.readthedocs.io/en/latest/), [Spatial Data Science with R](https://rspatial.org/raster/index.html), [MLDataUtils](https://mldatautilsjl.readthedocs.io/en/latest/index.html). La publicación de la documentación realícenla con [github pages](https://pages.github.com/) o [readthedocs](https://readthedocs.org/). Ver [getting started with sphinx](https://docs.readthedocs.io/en/stable/intro/getting-started-with-sphinx.html#getting-started-with-sphinx). Para R se tiene [roxygen2](https://github.com/r-lib/roxygen2), [pkgdown](https://github.com/r-lib/pkgdown).
-
-* Botón de [binder](https://mybinder.org/) para que desde este repo se pueda probar el paquete.
-
-* *Dockerfile* e imagen de docker que instale todo el *software* necesario para que funcione su paquete y también tenga instalado su paquete. La imagen de docker debe estar alojada en su cuenta de *dockerhub*.
-
-* *Tests* que muestren que su método numérico resuelve dos ejemplos de pequeña escala de problemas de optimización.
-
-La imagen de docker debe construirse y alojarse (*build & push*) **automáticamente** en *dockerhub* con un lanzamiento de un *workflow* de github vía *github actions*. Consultar las  referencias para esto. Entonces colocan su *Dockerfile* en su repo. Cualquier *commit* que modifique su *Dockerfile* esto lanza un *worfklow* de github que hace un *build & push* a su *dockerhub* de manera automática.
-
-Los *tests* deben pasarse **automáticamente** con un lanzamiento de un *workflow* de github vía *github actions*. El propósito de los *tests* es revisar que su método numérico resuelve correctamente dos problemas de optimización convexa.
-
-## Lenguaje de programación
-
-Python
+- Puedes encontrar el reporte de nuestro trabajo en el archivo [reporte_equipo_1_parte_2_practica_1, ubicado en la raíz de este repositorio](https://github.com/optimizacion-2-2021-1-gh-classroom/practica-1-segunda-parte-caroacostatovany/blob/main/reporte_equipo_1_parte_2_practica_1.ipynb).
 
 ## Fecha de entrega
 
-Viernes 26/mar/2021 11:59pm
-
-## Notas
-
-* **Para la entrega crear un archivo con nombre:** `reporte_equipo_1_parte_2_practica_1.ipynb`
-* Adjuntar screenshots en un directorio del repo para mostrar el uso de AWS. Debe aparecer en el screenshot nombre, clave única u otra forma de identificar el trabajo.
-
-## Entregables
-
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/optimizacion-2-2021-1-gh-classroom/practica-1-segunda-parte-caroacostatovany/main?urlpath=lab)
-
-La documentación de la herramienta desarrollada la puedes ver [aquí](https://optimizacion-2-2021-1-gh-classroom.github.io/practica-1-segunda-parte-caroacostatovany/).
+Sábado 27/mar/2021 11:59pm
 
 ## Referencias
 
-* [build-push-action](https://github.com/docker/build-push-action)
-* [publishing-images-to-docker-hub](https://docs.github.com/en/free-pro-team@latest/actions/guides/publishing-docker-images#publishing-images-to-docker-hub)
-* [creating-encrypted-secrets-for-an-organization](https://docs.github.com/en/free-pro-team@latest/actions/reference/encrypted-secrets#creating-encrypted-secrets-for-an-organization)
-* [example-docker-image-build-and-push](https://github.com/palmoreck/example-docker-image-build-and-push/blob/main/README.md)
-* [JE Beasley: Ejemplos PLs 1](http://people.brunel.ac.uk/~mastjjb/jeb/or/morelp.html), [JE Beasley: Ejemplos PLs 2](http://people.brunel.ac.uk/~mastjjb/jeb/or/lpmore.html), [JE Beasley: or library](http://people.brunel.ac.uk/~mastjjb/jeb/info.html)
-* [Introducción a la IDO](https://dudasytareas.files.wordpress.com/2017/05/hillier_lieberman.pdf)
-* [workflow-syntax-for-github-actions](https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions)
-* [github-actions](https://github.com/features/actions)
+- [Build-push-action](https://github.com/docker/build-push-action)
+- [Creating-encrypted-secrets-for-an-organization](https://docs.github.com/en/free-pro-team@latest/actions/reference/encrypted-secrets#creating-encrypted-secrets-for-an-organization)
+- [Example-docker-image-build-and-push](https://github.com/palmoreck/example-docker-image-build-and-push/blob/main/README.md)
+- [Github-actions](https://github.com/features/actions)
+- Moore, Jacob.  (2018).  [Coding the Simplex Algorithm from scratch using Python and Numpy](https://medium.com/@jacob.d.moore1/coding-the-simplex-algorithm-from-scratch-using-python-and-numpy-93e3813e6e70)
+- Palacios M., Erick. (2021). Libro de Optimización 2021. [4.2. Programación lineal (PL) y método símplex](https://itam-ds.github.io/analisis-numerico-computo-cientifico/IV.optimizacion_en_redes_y_prog_lineal/4.2/Programacion_lineal_y_metodo_simplex.html)
+- Palacios M., Erick. (2021). Libro de Optimización 2021. [4.3. Ejemplo del método símplex de redes](https://itam-ds.github.io/analisis-numerico-computo-cientifico/IV.optimizacion_en_redes_y_prog_lineal/4.3/Ejemplo_metodo_simplex_de_redes.html) 
+- Palacios M., Erick. (2021). Libro de Optimización 2021. [4.4. Dualidad, lema de Farkas y condiciones de Karush-Kuhn-Tucker (KKT) de optimalidad](https://itam-ds.github.io/analisis-numerico-computo-cientifico/IV.optimizacion_en_redes_y_prog_lineal/4.4/Dualidad_lema_de_Farkas_condiciones_KKT_de_optimalidad.html) 
+- [Publishing-images-to-docker-hub](https://docs.github.com/en/free-pro-team@latest/actions/guides/publishing-docker-images#publishing-images-to-docker-hub)
+- SciPy.org [scipy.optimize.linprog](https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.linprog.html#scipy.optimize.linprog)
+- [Workflow-syntax-for-github-actions](https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions)
