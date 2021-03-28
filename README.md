@@ -1,4 +1,4 @@
-![](https://mcdatos.itam.mx/wp-content/uploads/2020/11/ITAM-LOGO.03.jpg)
+![](https://mcdatos.itam.mx/wp-content/uploads/2020/11/ITAM-LOGO.03.jpg) ![](https://github.com/optimizacion-2-2021-1-gh-classroom/practica-1-segunda-parte-caroacostatovany/blob/main/images/mex_simplex_logo.png)
 # Optimización 2 2021-1 Práctica I - 2a Parte: Implementación de método numérico para resolver problemas de optimización convexa #
 
 ## Equipo 1
@@ -10,18 +10,19 @@
 | Carolina Acosta | caroacostatovany| Github workflows y documentación del paquete |
 | Leonardo Ceja | lecepe00| Imagen de Docker y documentación / **Project Manager** |
 
-![](https://github.com/optimizacion-2-2021-1-gh-classroom/practica-1-segunda-parte-caroacostatovany/blob/main/images/mex_simplex_logo.png)
 ## Aplicando el método simplex
 
 - En esta práctica se desarrolló un paquete de Python para resolver problemas de optimización por medio del método Simplex. 
 
+- Nuestro paquete se llama ***`mex`***. La documentación del mismo se desarrolló con [Sphinx](https://www.sphinx-doc.org/en/master/), la puedes encontrar [aquí](https://optimizacion-2-2021-1-gh-classroom.github.io/practica-1-segunda-parte-caroacostatovany/).
+
 - Para probar nuestro paquete puedes hacer uso del siguiente botón de binder: [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/optimizacion-2-2021-1-gh-classroom/practica-1-segunda-parte-caroacostatovany/main?urlpath=lab). Puedes probar el Jupyter notebook [Pruebas_Resultados.ipynb](https://github.com/optimizacion-2-2021-1-gh-classroom/practica-1-segunda-parte-caroacostatovany/tree/main/notebooks), que se encuentra en el directorio `/notebooks`.
 
-- La documentación de nuestro paquete se desarrolló con [Sphinx](https://www.sphinx-doc.org/en/master/), la puedes encontrar [aquí](https://optimizacion-2-2021-1-gh-classroom.github.io/practica-1-segunda-parte-caroacostatovany/).
+- Adicionalmente, se creó la imagen de Docker **`optimizacion-2-practica-1-parte-2`** que contiene todo lo necesario para ejecutar el paquete.
 
 - Para el desarrollo del proyecto se levantó una instancia de AWS donde se cargó una imagen de Docker que contiene JupyterLab. La evidencia del uso de la misma se encuentra en el directorio [AWS_screenshots](https://github.com/optimizacion-2-2021-1-gh-classroom/practica-1-segunda-parte-caroacostatovany/tree/main/AWS_screenshots).
 
-- Puedes encontrar el reporte de nuestro trabajo en el archivo [reporte_equipo_1_parte_2_practica_1, ubicado en la raíz de este repositorio](https://github.com/optimizacion-2-2021-1-gh-classroom/practica-1-segunda-parte-caroacostatovany/blob/main/reporte_equipo_1_parte_2_practica_1.ipynb).
+- Puedes encontrar el reporte de nuestro trabajo en el archivo [reporte_equipo_1_parte_2_practica_1](https://github.com/optimizacion-2-2021-1-gh-classroom/practica-1-segunda-parte-caroacostatovany/blob/main/reporte_equipo_1_parte_2_practica_1.ipynb), ubicado en la raíz de este repositorio.
 
 ## Fecha de entrega
 
