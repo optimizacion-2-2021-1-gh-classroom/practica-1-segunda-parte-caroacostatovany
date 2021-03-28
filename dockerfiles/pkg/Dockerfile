@@ -15,14 +15,16 @@ RUN useradd miuser -g miuser -m -s /bin/bash
 RUN echo 'miuser ALL=(ALL:ALL) NOPASSWD:ALL' | (EDITOR='tee -a' visudo)
 RUN echo 'miuser:qwerty' | chpasswd
 RUN pip3 install jupyter jupyterlab==$JUPYTERLAB_VERSION --upgrade
-
+RUN pip3 install matplotlib
+RUN pip3 install scipy
+RUN pip3 install networkx
 
 RUN apt-get update 
 RUN apt-get install -y git
-     
-RUN mkdir /home/datos \      
-           cd /home/datos \        
-           git clone https://github.com/optimizacion-2-2021-1-gh-classroom/practica-1-segunda-parte-caroacostatovany.git
+
+
+RUN cd /home/datos 
+RUN git clone https://github.com/optimizacion-2-2021-1-gh-classroom/practica-1-segunda-parte-caroacostatovany.git
 
 RUN pip3 install "git+https://github.com/optimizacion-2-2021-1-gh-classroom/practica-1-segunda-parte-caroacostatovany.git#egg=mex&subdirectory=src"
 USER miuser
