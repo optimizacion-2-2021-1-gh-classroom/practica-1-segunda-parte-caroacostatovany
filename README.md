@@ -1,4 +1,4 @@
-![](https://mcdatos.itam.mx/wp-content/uploads/2020/11/ITAM-LOGO.03.jpg) ![](https://github.com/optimizacion-2-2021-1-gh-classroom/practica-1-segunda-parte-caroacostatovany/blob/main/images/mex_simplex_logo.png)
+![](https://github.com/optimizacion-2-2021-1-gh-classroom/practica-1-segunda-parte-caroacostatovany/blob/main/images/mex_simplex_logo.png) ![](https://mcdatos.itam.mx/wp-content/uploads/2020/11/ITAM-LOGO.03.jpg)
 # Optimización 2 2021-1 Práctica I - 2a Parte: Implementación de método numérico para resolver problemas de optimización convexa #
 
 ## Equipo 1
