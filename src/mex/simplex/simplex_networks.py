@@ -1,4 +1,5 @@
 import numpy as np
+import logging
 
 
 def create_matrix(variables,constraints):
@@ -204,4 +205,4 @@ def pivot(row,col,matrix):
         t[row,:] = list(r)
         return t
     else:
-        print('Cannot pivot on this element')
+        logging.info('Cannot pivot on this element')

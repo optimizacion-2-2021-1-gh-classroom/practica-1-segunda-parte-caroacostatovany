@@ -1,13 +1,13 @@
 import numpy as np
-
+import logging
 #import os, sys
 #sys.path.insert(0, os.path.abspath(".."))
 
 import os
 os.chdir("..")
 
-from mex.utils.general import *
-from mex.simplex.simplex_networks import *
+from mex.utils.general import gen_var, convert_min, convert
+from mex.simplex.simplex_networks import pivots_col, find_pivot_col, pivots, pivots_row, pivot, find_pivot_row
 
 
 def add_cons(matrix):
@@ -84,7 +84,7 @@ def constrain(matrix, eq):
             #row[var+j] = 1
         
         else:
-            print('Cannot add another constraint.')
+            logging.info('Cannot add another constraint.')
         
     else:
         if add_cons(matrix):
@@ -114,7 +114,7 @@ def constrain(matrix, eq):
             row[var+j] = 1
             
         else:
-            print('Cannot add another constraint.')
+            logging.info('Cannot add another constraint.')
         
 
 def add_obj(matrix):
@@ -177,7 +177,7 @@ def obj(matrix,eq):
         row[-2] = 1
         row[-1] = eq[-1]
     else:
-        print('You must finish adding constraints before the objective function can be added.')
+        logging.info('You must finish adding constraints before the objective function can be added.')
         
 
 def maxz(matrix):
