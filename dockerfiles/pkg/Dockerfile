@@ -29,5 +29,4 @@ RUN chown -R ${USER_BINDER}:${USER_BINDER} /home/${USER_BINDER}/
 USER ${USER_BINDER}
 
 RUN jupyter notebook --generate-config && sed -i "s/#c.NotebookApp.password = .*/c.NotebookApp.password = u'sha1:115e429a919f:21911277af52f3e7a8b59380804140d9ef3e2380'/" /home/${USER_BINDER}/.jupyter/jupyter_notebook_config.py
-ENV LC_ALL C.UTF-8
-ENV LANG C.UTF-8
+ENTRYPOINT ["/usr/local/bin/jupyter", "lab", "--ip=0.0.0.0", "--no-browser"]
