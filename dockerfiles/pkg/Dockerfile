@@ -1,6 +1,7 @@
 FROM ubuntu:bionic
 
 ENV JUPYTERLAB_VERSION 3.0.0
+ENV USER_BINDER jovyan
 ENV LANG C.UTF-8
 ENV LC_ALL C.UTF-8
 
@@ -12,6 +13,8 @@ RUN apt-get update && apt-get install -y $DEB_PACKAGES && pip3 install --upgrade
 
 
 RUN git clone https://github.com/optimizacion-2-2021-1-gh-classroom/practica-1-segunda-parte-caroacostatovany.git
+#Instala paquetes necesario
+RUN pip install practica-1-segunda-parte-caroacostatovany/src/
 
 RUN groupadd miuser
 RUN useradd miuser -g miuser -m -s /bin/bash
@@ -24,7 +27,9 @@ RUN pip3 install networkx
 
 RUN pip3 install "git+https://github.com/optimizacion-2-2021-1-gh-classroom/practica-1-segunda-parte-caroacostatovany.git#egg=mex&subdirectory=src"
 USER miuser
-
+RUN chown -R ${USER_BINDER}:${USER_BINDER} /home/jovyan/   #da permisos al usuario
+USER ${USER_BINDER}
 
 RUN jupyter notebook --generate-config && sed -i "s/#c.NotebookApp.password = .*/c.NotebookApp.password = u'sha1:115e429a919f:21911277af52f3e7a8b59380804140d9ef3e2380'/" /home/miuser/.jupyter/jupyter_notebook_config.py
-ENTRYPOINT ["/usr/local/bin/jupyter", "lab", "--ip=0.0.0.0", "--no-browser"]
+ENV LC_ALL C.UTF-8
+ENV LANG C.UTF-8
