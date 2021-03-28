@@ -18,8 +18,8 @@ RUN pip install practica-1-segunda-parte-caroacostatovany/src/
 
 RUN groupadd ${USER_BINDER}
 RUN useradd ${USER_BINDER} -g ${USER_BINDER} -m -s /bin/bash
-RUN echo '$jovyan ALL=(ALL:ALL) NOPASSWD:ALL' | (EDITOR='tee -a' visudo)
-RUN echo '$jovyan:qwerty' | chpasswd
+RUN echo 'jovyan ALL=(ALL:ALL) NOPASSWD:ALL' | (EDITOR='tee -a' visudo)
+RUN echo 'jovyan:qwerty' | chpasswd
 RUN pip3 install jupyter jupyterlab==$JUPYTERLAB_VERSION --upgrade
 RUN pip3 install matplotlib
 RUN pip3 install scipy
