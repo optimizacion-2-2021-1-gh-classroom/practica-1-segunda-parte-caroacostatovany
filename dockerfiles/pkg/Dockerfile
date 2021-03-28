@@ -16,17 +16,16 @@ RUN git clone https://github.com/optimizacion-2-2021-1-gh-classroom/practica-1-s
 #Instala paquetes necesario
 RUN pip install practica-1-segunda-parte-caroacostatovany/src/
 
-RUN groupadd miuser
-RUN useradd miuser -g miuser -m -s /bin/bash
-RUN echo 'miuser ALL=(ALL:ALL) NOPASSWD:ALL' | (EDITOR='tee -a' visudo)
-RUN echo 'miuser:qwerty' | chpasswd
+RUN groupadd ${USER_BINDER}
+RUN useradd ${USER_BINDER} -g ${USER_BINDER} -m -s /bin/bash
+RUN echo 'jovyan ALL=(ALL:ALL) NOPASSWD:ALL' | (EDITOR='tee -a' visudo)
+RUN echo 'jovyan:qwerty' | chpasswd
 RUN pip3 install jupyter jupyterlab==$JUPYTERLAB_VERSION --upgrade
 RUN pip3 install matplotlib
 RUN pip3 install scipy
 RUN pip3 install networkx
 
-RUN pip3 install "git+https://github.com/optimizacion-2-2021-1-gh-classroom/practica-1-segunda-parte-caroacostatovany.git#egg=mex&subdirectory=src"
-RUN chown -R ${USER_BINDER}:${USER_BINDER} /home/jovyan/   #da permisos al usuario
+RUN chown -R ${USER_BINDER}:${USER_BINDER} /home/${USER_BINDER}/   
 USER ${USER_BINDER}
 
 RUN jupyter notebook --generate-config && sed -i "s/#c.NotebookApp.password = .*/c.NotebookApp.password = u'sha1:115e429a919f:21911277af52f3e7a8b59380804140d9ef3e2380'/" /home/miuser/.jupyter/jupyter_notebook_config.py
