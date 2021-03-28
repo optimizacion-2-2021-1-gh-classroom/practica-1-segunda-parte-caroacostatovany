@@ -3,7 +3,7 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-.. figure:: images/mex_simplex_logo.png
+.. image:: ../..images/mex_simplex_logo.png
    :align: left
 
 Welcome to mex's documentation!
