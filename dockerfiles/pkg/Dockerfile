@@ -26,7 +26,6 @@ RUN pip3 install scipy
 RUN pip3 install networkx
 
 RUN pip3 install "git+https://github.com/optimizacion-2-2021-1-gh-classroom/practica-1-segunda-parte-caroacostatovany.git#egg=mex&subdirectory=src"
-USER miuser
 RUN chown -R ${USER_BINDER}:${USER_BINDER} /home/jovyan/   #da permisos al usuario
 USER ${USER_BINDER}
 
