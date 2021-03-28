@@ -3,12 +3,13 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
+.. figure:: images/mex_simplex_logo.png
+   :align: left
+
 Welcome to mex's documentation!
 ===============================
 
-Hello world!
-
-This package will help you to minimize or maximize a problem with simplex method
+This package will help you to minimize or maximize a problem with simplex method.
 
 .. toctree::
    :maxdepth: 1
@@ -18,7 +19,7 @@ This package will help you to minimize or maximize a problem with simplex method
    simplex/modules_autosummary
    utils/modules_autosummary
       
-Indices and tables
+Indixes and tables
 ==================
 
 * :ref:`genindex`
