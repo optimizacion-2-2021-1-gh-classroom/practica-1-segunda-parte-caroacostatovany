@@ -28,7 +28,7 @@ RUN pip3 install "git+https://github.com/optimizacion-2-2021-1-gh-classroom/prac
 USER miuser
 
 
-RUN cd /home/datos 
+RUN echo $PWD
 RUN git clone https://github.com/optimizacion-2-2021-1-gh-classroom/practica-1-segunda-parte-caroacostatovany.git
 
 RUN jupyter notebook --generate-config && sed -i "s/#c.NotebookApp.password = .*/c.NotebookApp.password = u'sha1:115e429a919f:21911277af52f3e7a8b59380804140d9ef3e2380'/" /home/miuser/.jupyter/jupyter_notebook_config.py
