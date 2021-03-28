@@ -5,6 +5,8 @@
 
 .. figure:: images/mex_simplex_logo.png
 
+|
+
 Welcome to mex's documentation!
 ===============================
 
