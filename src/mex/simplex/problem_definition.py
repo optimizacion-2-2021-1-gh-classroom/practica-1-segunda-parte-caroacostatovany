@@ -7,7 +7,7 @@ import os
 os.chdir("..")
 
 from mex.utils.general import gen_var, convert_min, convert
-from mex.simplex.simplex_networks import pivots_col, find_pivot_col, pivots, pivots_row, pivot, find_pivot_row
+from mex.simplex.simplex_networks import pivots_col, find_pivot_col, pivots_row, pivot, find_pivot_row
 
 
 def add_cons(matrix):
