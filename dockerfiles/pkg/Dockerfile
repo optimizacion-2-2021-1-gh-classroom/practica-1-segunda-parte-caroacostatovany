@@ -12,10 +12,6 @@ RUN apt-get update && export DEBIAN_FRONTEND=noninteractive && echo "America/Mex
 RUN apt-get update && apt-get install -y $DEB_PACKAGES && pip3 install --upgrade pip
 
 
-RUN git clone https://github.com/optimizacion-2-2021-1-gh-classroom/practica-1-segunda-parte-caroacostatovany.git
-#Instala paquetes necesario
-RUN pip install practica-1-segunda-parte-caroacostatovany/src/
-
 RUN groupadd ${USER_BINDER}
 RUN useradd ${USER_BINDER} -g ${USER_BINDER} -m -s /bin/bash
 RUN echo 'jovyan ALL=(ALL:ALL) NOPASSWD:ALL' | (EDITOR='tee -a' visudo)
@@ -24,6 +20,7 @@ RUN pip3 install jupyter jupyterlab==$JUPYTERLAB_VERSION --upgrade
 RUN pip3 install matplotlib
 RUN pip3 install scipy
 RUN pip3 install networkx
+RUN pip3 install "git+https://github.com/optimizacion-2-2021-1-gh-classroom/practica-1-segunda-parte-caroacostatovany.git#egg=mex&subdirectory=src"
 
 RUN chown -R ${USER_BINDER}:${USER_BINDER} /home/${USER_BINDER}/   
 USER ${USER_BINDER}
