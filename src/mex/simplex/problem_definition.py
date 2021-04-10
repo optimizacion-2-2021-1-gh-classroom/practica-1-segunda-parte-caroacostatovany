@@ -1,10 +1,5 @@
 import numpy as np
 import logging
-#import os, sys
-#sys.path.insert(0, os.path.abspath(".."))
-
-import os
-os.chdir("..")
 
 from mex.utils.general import gen_var, convert_min, convert
 from mex.simplex.simplex_networks import pivots_col, find_pivot_col, pivots_row, pivot, find_pivot_row
