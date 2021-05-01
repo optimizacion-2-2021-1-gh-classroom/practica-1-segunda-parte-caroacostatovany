@@ -10,17 +10,18 @@
 Welcome to mex's documentation!
 ===============================
 
-This package will help you to minimize or maximize a problem with simplex method.
+This package will help you to minimize or maximize a problem using the simplex method.
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
    :caption: Contents:
 
+   docker
    installation
    simplex/modules_autosummary
    utils/modules_autosummary
       
-Indixes and tables
+Index and tables
 ==================
 
 * :ref:`genindex`
