@@ -183,7 +183,7 @@
         <span class="k">return</span> <span class="kc">False</span></div>
 
 
-<div class="viewcode-block" id="obj"><a class="viewcode-back" href="../../../_autosummary/mex.simplex.problem_definition.obj.html#mex.simplex.problem_definition.obj">[docs]</a><span class="k">def</span> <span class="nf">obj</span><span class="p">(</span><span class="n">matrix</span><span class="p">,</span><span class="n">eq</span><span class="p">):</span>
+<div class="viewcode-block" id="obj"><a class="viewcode-back" href="../../../_autosummary/mex.simplex.problem_definition.obj.html#mex.simplex.problem_definition.obj">[docs]</a><span class="k">def</span> <span class="nf">obj</span><span class="p">(</span><span class="n">matrix</span><span class="p">,</span><span class="n">eq</span><span class="p">,</span> <span class="n">memory_prof</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Adds the objective function to the problem matrix.</span>
 <span class="sd">    </span>
@@ -214,7 +214,10 @@
         <span class="n">row</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
         <span class="n">row</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">eq</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;You must finish adding constraints before the objective function can be added.&#39;</span><span class="p">)</span></div>
+        <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;You must finish adding constraints before the objective function can be added.&#39;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">memory_prof</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">matrix</span></div>
         
 
 <div class="viewcode-block" id="maxz"><a class="viewcode-back" href="../../../_autosummary/mex.simplex.problem_definition.maxz.html#mex.simplex.problem_definition.maxz">[docs]</a><span class="k">def</span> <span class="nf">maxz</span><span class="p">(</span><span class="n">matrix</span><span class="p">):</span>
