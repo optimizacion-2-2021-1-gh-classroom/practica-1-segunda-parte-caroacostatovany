@@ -180,7 +180,7 @@ def obj(matrix,eq, memory_prof=False):
         return matrix
         
 
-def maxz(matrix):
+def maxz(matrix, aux=True):
     """
     Creates maximization function. Determines if 1 extra pivot is required, locates the pivot element,
     pivots about it and continues the process until all negative elements have been removed from
@@ -224,8 +224,9 @@ def maxz(matrix):
         else:
             val[gen_var(matrix)[i]] = 0
     val['max'] = matrix[-1, -1]
-    
-    return val
+
+    if aux:
+        return val
 
 
 def minz(matrix):
