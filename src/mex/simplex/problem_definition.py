@@ -143,7 +143,7 @@ def add_obj(matrix):
         return False
 
 
-def obj(matrix,eq):
+def obj(matrix,eq, memory_prof=False):
     """
     Adds the objective function to the problem matrix.
     
@@ -175,6 +175,9 @@ def obj(matrix,eq):
         row[-1] = eq[-1]
     else:
         logging.info('You must finish adding constraints before the objective function can be added.')
+
+    if memory_prof:
+        return matrix
         
 
 def maxz(matrix):
