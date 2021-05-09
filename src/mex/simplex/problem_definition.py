@@ -35,7 +35,7 @@ def add_cons(matrix):
         return False
 
 
-def constrain(matrix, eq):
+def constrain(matrix, eq, memory_prof=False):
     """
     Adds constraints to the problem.
     
@@ -110,7 +110,9 @@ def constrain(matrix, eq):
             
         else:
             logging.info('Cannot add another constraint.')
-        
+
+    if memory_prof:
+        return matrix
 
 def add_obj(matrix):
     """
